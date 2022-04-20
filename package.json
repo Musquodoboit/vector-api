@@ -1,0 +1,37 @@
+{
+  "name": "@construction-ai/vector-api",
+  "version": "1.0.0",
+  "description": "Library to to access APIs for vector processing of PDFs",
+  "author": "Pique Innovations",
+  "contributors": [
+    "Jason Heard <jason.heard@construction.ai>"
+  ],
+  "repository": "github:Musquodoboit/vector-api",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "build": "npm run clean && npm run lint && tsc",
+    "clean": "rm -r ./dist || true",
+    "clean:all": "npm run clean && (rm -r ./node_modules || true)",
+    "lint": "eslint --ext .ts src/**/*.ts",
+    "fix": "eslint --ext .ts --fix src/**/*.ts",
+    "preversion": "npm run build",
+    "postversion": "git push && git push --tags",
+    "prepare": "npm run build"
+  },
+  "dependencies": {
+    "@types/msgpack": "^0.0.31",
+    "msgpack": "^1.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.27",
+    "@typescript-eslint/eslint-plugin": "^5.20.0",
+    "@typescript-eslint/parser": "^5.20.0",
+    "eslint": "^8.14.0",
+    "typescript": "^4.6.3"
+  }
+}

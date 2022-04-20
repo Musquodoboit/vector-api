@@ -1,0 +1,13 @@
+# Yarn logs
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency directories
+node_modules/
+
+# TypeScript output
+dist/
+
+# Input PDF files
+*.pdf
+
