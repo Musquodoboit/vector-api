@@ -1,4 +1,5 @@
 # ISC License
+
 ## Copyright 2022 Pique Innovations
 
 Permission to use, copy, modify, and/or distribute this software for any
