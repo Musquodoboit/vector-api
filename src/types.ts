@@ -141,8 +141,17 @@ export interface VectorPathStepBezier extends VectorPathStepBase {
  */
 export type VectorPathStep = VectorPathStepSimple | VectorPathStepBezier;
 
+/**
+ * Holds the result of a status check.
+ */
 export interface VectorStatus {
-    ready: boolean;
-
+    /**
+     * A user-friendly progress message about the vector processing.
+     */
     progress: string;
+
+    /**
+     * Indicates whether the vector data has been processed and is ready to be retrieved.
+     */
+    ready: boolean;
 }

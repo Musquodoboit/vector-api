@@ -131,15 +131,47 @@ function simpleUpload(
     });
 }
 
+/**
+ * Describes how the API should connect with an endpoint.
+ */
 export interface ApiSettings {
+    /**
+     * The API key to use to authenticate with an endpoint.
+     */
     apiKey: string;
+
+    /**
+     * If set, the HTTP protocol will be used.
+     *
+     * @default false
+     */
     useHttp?: boolean;
+
+    /**
+     * If set, the hostname to connect to.
+     *
+     * @default "app.construction.ai"
+     */
     hostname?: string;
+
+    /**
+     * If set, the port to connect to. If unset, the default port for the chosen
+     * protocol will be used.
+     */
     port?: number;
 }
 
 const defaultHostname = "app.construction.ai";
 
+/**
+ * Attempts to download the results for the upload identified by the given
+ * token.
+ *
+ * @param settings the API settings used to connect to the construction.ai
+ *      endpoint.
+ * @param token the token that identifies the upload.
+ * @returns promise that will resolve to the vector results of the upload.
+ */
 export function getData(
     settings: ApiSettings,
     token: string
@@ -160,6 +192,14 @@ export function getData(
     });
 }
 
+/**
+ * Checks on the processing status of the upload identified by the given token.
+ *
+ * @param settings the API settings used to connect to the construction.ai
+ *      endpoint.
+ * @param token the token that identifies the upload.
+ * @returns promise that will resolve to the status of the upload.
+ */
 export function getStatus(
     settings: ApiSettings,
     token: string
@@ -180,6 +220,16 @@ export function getStatus(
     });
 }
 
+/**
+ * Uploads a PDF and returns a promise that will result in a token that can be
+ * used to determine the status of the processing of the file and to download
+ * the results once the processing is completed
+ *
+ * @param settings the API settings used to connect to the construction.ai
+ *      endpoint.
+ * @param pdfPath the path to the PDF file to upload.
+ * @returns promise that will resolve to a token.
+ */
 export function uploadPdf(
     settings: ApiSettings,
     pdfPath: string
