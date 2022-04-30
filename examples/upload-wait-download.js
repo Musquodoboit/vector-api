@@ -1,7 +1,7 @@
-import { getData, getStatus, uploadPdf } from "./lib";
-import { VectorResult } from "./types";
+// require "@construction-ai/vector-api" if used outside of this repo
+const { getData, getStatus, uploadPdf } = require("..");
 
-function printResults(data: VectorResult): void {
+function printResults(data) {
     console.log(
         `Got results for file ${data.fileName} with ${data.pages.length} pages`
     );
@@ -26,7 +26,7 @@ function printResults(data: VectorResult): void {
     }
 }
 
-function waitAndDownload(apiKey: string, token: string): void {
+function waitAndDownload(apiKey, token) {
     function checkOnce() {
         getStatus(apiKey, token)
             .then((data) => {
@@ -45,7 +45,7 @@ function waitAndDownload(apiKey: string, token: string): void {
     setTimeout(checkOnce, 200);
 }
 
-function main(): void {
+function main() {
     if (!process.env.API_KEY) {
         console.error(
             "Please set the 'API_KEY' environment variable to use the command line tester."
