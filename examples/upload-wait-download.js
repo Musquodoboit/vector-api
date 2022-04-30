@@ -26,13 +26,13 @@ function printResults(data) {
     }
 }
 
-function waitAndDownload(apiKey, token) {
+function waitAndDownload(settings, token) {
     function checkOnce() {
-        getStatus(apiKey, token)
+        getStatus(settings, token)
             .then((data) => {
                 console.log("Got progress:", data.progress);
                 if (data.ready) {
-                    getData(apiKey, token).then((data) => {
+                    getData(settings, token).then((data) => {
                         printResults(data);
                     });
                 } else {
@@ -60,13 +60,18 @@ function main() {
         return;
     }
 
-    const apiKey = process.env.API_KEY;
+    const settings = {
+        hostname: process.env.USE_LOCALHOST ? "localhost" : undefined,
+        port: process.env.USE_LOCALHOST ? 3000 : undefined,
+        useHttp: !!process.env.USE_LOCALHOST,
+        apiKey: process.env.API_KEY,
+    };
     const filePath = process.argv[2];
 
-    uploadPdf(apiKey, filePath)
+    uploadPdf(settings, filePath)
         .then((token) => {
             console.log("Got token:", token);
-            waitAndDownload(apiKey, token);
+            waitAndDownload(settings, token);
         })
         .catch((err) => console.error("Got upload error:", err));
 }
