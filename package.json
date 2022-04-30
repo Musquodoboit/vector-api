@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@types/msgpack": "^0.0.31",
+    "@xingrz/cppzst": "^2.1.0-alpha.8",
     "msgpack": "^1.0.3"
   },
   "devDependencies": {

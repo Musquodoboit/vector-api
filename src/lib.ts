@@ -1,9 +1,11 @@
+import { decompress } from "@xingrz/cppzst";
 import fs from "fs";
 import http from "http";
 import https from "https";
-import msgpack from "msgpack";
+import { unpack } from "msgpack";
 import path from "path";
 
+import { PackedVectorResult, unpackResult } from "./packedTypes";
 import { VectorResult, VectorStatus } from "./types";
 
 interface SimpleRequestOptions {
@@ -187,9 +189,12 @@ export function getData(
         },
     };
 
-    return simpleRequest(options).then((body) => {
-        return msgpack.unpack(body);
-    });
+    return simpleRequest(options)
+        .then((compressedBody) => decompress(compressedBody))
+        .then((msgPackBody) => {
+            const packedResult = unpack(msgPackBody) as PackedVectorResult;
+            return unpackResult(packedResult);
+        });
 }
 
 /**
