@@ -13,6 +13,9 @@
   "files": [
     "dist/"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "npm run clean && npm run lint && tsc",
     "clean": "rm -r ./dist || true",
