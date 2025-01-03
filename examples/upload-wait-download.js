@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
+/* global console, process, require setTimeout */
+
 // require "@construction-ai/vector-api" if used outside of this repo
 const { getData, getStatus, uploadPdf } = require("..");
 

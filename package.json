@@ -20,8 +20,8 @@
     "build": "npm run clean && npm run lint && tsc",
     "clean": "rm -r ./dist || true",
     "clobber": "git -c core.longpaths=true clean -dfX",
-    "lint": "eslint --ext .ts src/**/*.ts",
-    "fix": "prettier --write . && eslint --ext .ts --fix src/**/*.ts",
+    "lint": "eslint",
+    "fix": "prettier --write . && eslint --fix",
     "preversion": "npm run build",
     "postversion": "git push && git push --tags",
     "prepare": "npm run build"
@@ -35,10 +35,12 @@
     "msgpack": "^1.0.3"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3.2.0",
+    "@eslint/js": "^9.17.0",
     "@types/node": "^20.17.11",
-    "@typescript-eslint/eslint-plugin": "^5.20.0",
-    "@typescript-eslint/parser": "^5.20.0",
-    "eslint": "^8.14.0",
+    "@typescript-eslint/eslint-plugin": "^8.19.0",
+    "@typescript-eslint/parser": "^8.19.0",
+    "eslint": "^9.17.0",
     "prettier": "^2.6.2",
     "typescript": "^5.7.2"
   },
