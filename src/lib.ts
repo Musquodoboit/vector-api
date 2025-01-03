@@ -72,21 +72,21 @@ function simpleUpload(
     return simpleReadFile(filePath).then((fileContents) => {
         const crlf = "\r\n";
         const boundary = `--${Math.random().toString(16).substring(2)}`;
-        const delimeter = `${crlf}--${boundary}`;
-        const closeDelimeter = `${delimeter}--`;
+        const delimiter = `${crlf}--${boundary}`;
+        const closeDelimiter = `${delimiter}--`;
         const contentDisposition = `form-data; name="file"; filename="${path.basename(
             filePath
         )}"`;
         const multipartBody = Buffer.concat([
             Buffer.from(
-                delimeter +
+                delimiter +
                     crlf +
                     `Content-Disposition: ${contentDisposition}` +
                     crlf +
                     crlf
             ),
             fileContents,
-            Buffer.from(closeDelimeter),
+            Buffer.from(closeDelimiter),
         ]);
 
         const innerOptions = {
@@ -255,7 +255,7 @@ export function uploadPdf(
         if (resultingJson && typeof resultingJson.token === "string") {
             return resultingJson.token;
         } else {
-            throw new Error("Did not recieve token from server.");
+            throw new Error("Did not receive token from server.");
         }
     });
 }
