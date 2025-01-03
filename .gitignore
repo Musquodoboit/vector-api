@@ -1,6 +1,7 @@
-# Yarn logs
+# Yarn temporary files
 yarn-debug.log*
 yarn-error.log*
+install-state.gz
 
 # Dependency directories
 node_modules/
