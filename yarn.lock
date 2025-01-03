@@ -10,14 +10,14 @@ __metadata:
   resolution: "@construction-ai/vector-api@workspace:."
   dependencies:
     "@types/msgpack": "npm:^0.0.31"
-    "@types/node": "npm:^17.0.27"
+    "@types/node": "npm:^20.17.11"
     "@typescript-eslint/eslint-plugin": "npm:^5.20.0"
     "@typescript-eslint/parser": "npm:^5.20.0"
     "@xingrz/cppzst": "npm:^2.1.0-alpha.8"
     eslint: "npm:^8.14.0"
     msgpack: "npm:^1.0.3"
     prettier: "npm:^2.6.2"
-    typescript: "npm:^4.6.3"
+    typescript: "npm:^5.7.2"
   languageName: unknown
   linkType: soft
 
@@ -149,10 +149,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^17.0.27":
-  version: 17.0.27
-  resolution: "@types/node@npm:17.0.27"
-  checksum: 10c0/5c48a8acca228969198588b42466d5774efa8e2b9eaf110576e740956146f3d88f612260c3f380e431f7450a1ef9eedc177deb4c50173a5a3075dc4afc0bef25
+"@types/node@npm:^20.17.11":
+  version: 20.17.11
+  resolution: "@types/node@npm:20.17.11"
+  dependencies:
+    undici-types: "npm:~6.19.2"
+  checksum: 10c0/16cb9c63d5b8903a6ee05b2948af3379e34b438682cb219f7877521fb24cf3ec5dbd7016dc95a156ae60821a936dea0018f460a7016cc3228b7f572d862bad68
   languageName: node
   linkType: hard
 
@@ -1810,23 +1812,30 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^4.6.3":
-  version: 4.6.3
-  resolution: "typescript@npm:4.6.3"
+"typescript@npm:^5.7.2":
+  version: 5.7.2
+  resolution: "typescript@npm:5.7.2"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/53e8bcf00abde8ecb2002d1f1e15160b21cb62b2dd0ff71bad2ef55fa96141f76316fce649a415758d3f17bd8e0c5676d8f017c34ec3e38b585812d4717a712c
+  checksum: 10c0/a873118b5201b2ef332127ef5c63fb9d9c155e6fdbe211cbd9d8e65877283797cca76546bad742eea36ed7efbe3424a30376818f79c7318512064e8625d61622
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A^4.6.3#optional!builtin<compat/typescript>":
-  version: 4.6.3
-  resolution: "typescript@patch:typescript@npm%3A4.6.3#optional!builtin<compat/typescript>::version=4.6.3&hash=5d3a66"
+"typescript@patch:typescript@npm%3A^5.7.2#optional!builtin<compat/typescript>":
+  version: 5.7.2
+  resolution: "typescript@patch:typescript@npm%3A5.7.2#optional!builtin<compat/typescript>::version=5.7.2&hash=5786d5"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/8d62a37d9f238d83b6cdc738be90bb476a61c7e05d5924ecfb894eb63f39406b0660bd931876546a2be6895cd2678ddcb7f6793ceaab1454bc4e39f3cd9eb889
+  checksum: 10c0/f3b8082c9d1d1629a215245c9087df56cb784f9fb6f27b5d55577a20e68afe2a889c040aacff6d27e35be165ecf9dca66e694c42eb9a50b3b2c451b36b5675cb
+  languageName: node
+  linkType: hard
+
+"undici-types@npm:~6.19.2":
+  version: 6.19.8
+  resolution: "undici-types@npm:6.19.8"
+  checksum: 10c0/078afa5990fba110f6824823ace86073b4638f1d5112ee26e790155f481f2a868cc3e0615505b6f4282bdf74a3d8caad715fd809e870c2bb0704e3ea6082f344
   languageName: node
   linkType: hard
 

@@ -26,18 +26,21 @@
     "postversion": "git push && git push --tags",
     "prepare": "npm run build"
   },
+  "engines": {
+    "node": ">=20"
+  },
   "dependencies": {
     "@types/msgpack": "^0.0.31",
     "@xingrz/cppzst": "^2.1.0-alpha.8",
     "msgpack": "^1.0.3"
   },
   "devDependencies": {
-    "@types/node": "^17.0.27",
+    "@types/node": "^20.17.11",
     "@typescript-eslint/eslint-plugin": "^5.20.0",
     "@typescript-eslint/parser": "^5.20.0",
     "eslint": "^8.14.0",
     "prettier": "^2.6.2",
-    "typescript": "^4.6.3"
+    "typescript": "^5.7.2"
   },
   "packageManager": "yarn@4.6.0"
 }
