@@ -30,9 +30,8 @@
     "node": ">=20"
   },
   "dependencies": {
-    "@types/msgpack": "^0.0.31",
-    "@xingrz/cppzst": "^2.1.0-alpha.8",
-    "msgpack": "^1.0.3"
+    "@msgpack/msgpack": "^2.8.0",
+    "@xingrz/cppzst": "^2.1.0-alpha.8"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",

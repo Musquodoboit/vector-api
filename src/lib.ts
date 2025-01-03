@@ -1,8 +1,8 @@
+import { decode } from "@msgpack/msgpack";
 import { decompress } from "@xingrz/cppzst";
 import fs from "fs";
 import http from "http";
 import https from "https";
-import { unpack } from "msgpack";
 import path from "path";
 
 import { PackedVectorResult, unpackResult } from "./packedTypes";
@@ -192,7 +192,7 @@ export function getData(
     return simpleRequest(options)
         .then((compressedBody) => decompress(compressedBody))
         .then((msgPackBody) => {
-            const packedResult = unpack(msgPackBody) as PackedVectorResult;
+            const packedResult = decode(msgPackBody) as PackedVectorResult;
             return unpackResult(packedResult);
         });
 }
