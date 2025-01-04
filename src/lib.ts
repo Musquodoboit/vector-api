@@ -1,5 +1,5 @@
 import { decode } from "@msgpack/msgpack";
-import { decompress } from "@xingrz/cppzst";
+import { decompress } from "@skhaz/zstd";
 import fs from "fs";
 import http from "http";
 import https from "https";

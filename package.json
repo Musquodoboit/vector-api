@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "@msgpack/msgpack": "^2.8.0",
-    "@xingrz/cppzst": "^2.1.0-alpha.8"
+    "@skhaz/zstd": "^1.0.21"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",

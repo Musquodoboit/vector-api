@@ -12,10 +12,10 @@ __metadata:
     "@eslint/eslintrc": "npm:^3.2.0"
     "@eslint/js": "npm:^9.17.0"
     "@msgpack/msgpack": "npm:^2.8.0"
+    "@skhaz/zstd": "npm:^1.0.21"
     "@types/node": "npm:^20.17.11"
     "@typescript-eslint/eslint-plugin": "npm:^8.19.0"
     "@typescript-eslint/parser": "npm:^8.19.0"
-    "@xingrz/cppzst": "npm:^2.1.0-alpha.8"
     eslint: "npm:^9.17.0"
     prettier: "npm:^3.4.2"
     typescript: "npm:^5.7.2"
@@ -224,6 +224,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@skhaz/zstd@npm:^1.0.21":
+  version: 1.0.21
+  resolution: "@skhaz/zstd@npm:1.0.21"
+  dependencies:
+    nan: "npm:^2.14.2"
+    node-gyp: "npm:latest"
+    node-gyp-build: "npm:^4.6.1"
+    pond: "npm:^2.1.2"
+  checksum: 10c0/4228914d3e619fec3cc7016a6056e52d23d40aff03f6eadfddd1059632659a2c65e70b8c8412b31fc13e3055db35afb776b142e6278e96d2b9146030550b9746
+  languageName: node
+  linkType: hard
+
 "@types/estree@npm:^1.0.6":
   version: 1.0.6
   resolution: "@types/estree@npm:1.0.6"
@@ -356,18 +368,6 @@ __metadata:
     "@typescript-eslint/types": "npm:8.19.0"
     eslint-visitor-keys: "npm:^4.2.0"
   checksum: 10c0/a293def05018bb2259506e23cd8f14349f4386d0e51231893fbddf96ef73c219d5f9fe17b82e3c104f5c23956dbd9b87af3cff5e84b887af243139a3b4bbbe0d
-  languageName: node
-  linkType: hard
-
-"@xingrz/cppzst@npm:^2.1.0-alpha.8":
-  version: 2.1.0-alpha.8
-  resolution: "@xingrz/cppzst@npm:2.1.0-alpha.8"
-  dependencies:
-    nan: "npm:^2.14.2"
-    node-gyp: "npm:latest"
-    node-gyp-build: "npm:^4.3.0"
-    pond: "npm:^2.1.2"
-  checksum: 10c0/f3e09d6eb33d850948a8469a55361b16a58d11b896044952c096a8e0c88e2402dede850194188ba4fa7d6f57f69369a667ebae63d2a65a556416a873acba9809
   languageName: node
   linkType: hard
 
@@ -1340,7 +1340,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-gyp-build@npm:^4.3.0":
+"node-gyp-build@npm:^4.6.1":
   version: 4.8.4
   resolution: "node-gyp-build@npm:4.8.4"
   bin:
