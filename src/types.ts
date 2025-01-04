@@ -74,32 +74,42 @@ export interface VectorPoint {
 }
 
 /**
- * Holds a single path drawn in a PDF.
+ * Holds a single path drawn with possibly multiple curves in a PDF.
  */
 export interface VectorPath {
     /**
-     * Indicates whether this path forms a closed shape.
+     * The curves within this path.
+     */
+    curves: VectorCurve[];
+}
+
+/**
+ * Holds a single curve drawn in a PDF.
+ */
+export interface VectorCurve {
+    /**
+     * Indicates whether this curve forms a closed shape.
      *
-     * If this is true, then the first and last points in the path should be
+     * If this is true, then the first and last points in the curve should be
      * identical.
      */
     closed: boolean;
 
     /**
-     * The starting point of this path.
+     * The starting point of this curve.
      */
     startingPoint: VectorPoint;
 
     /**
-     * The steps of this path.
+     * The steps of this curve.
      */
-    steps: VectorPathStep[];
+    steps: VectorCurveStep[];
 }
 
 /**
- * The base type for all vector path steps.
+ * The base type for all vector curve steps.
  */
-export interface VectorPathStepBase {
+export interface VectorCurveStepBase {
     /**
      * The end point of this step.
      */
@@ -107,9 +117,9 @@ export interface VectorPathStepBase {
 }
 
 /**
- * Holds a single straight line step along a vector path in a PDF.
+ * Holds a single straight line step along a vector curve in a PDF.
  */
-export interface VectorPathStepSimple extends VectorPathStepBase {
+export interface VectorCurveStepSimple extends VectorCurveStepBase {
     /**
      * Indicates that this step is not a bezier curve.
      */
@@ -117,9 +127,9 @@ export interface VectorPathStepSimple extends VectorPathStepBase {
 }
 
 /**
- * Holds a single bezier curve step along a vector path in a PDF.
+ * Holds a single bezier curve step along a vector curve in a PDF.
  */
-export interface VectorPathStepBezier extends VectorPathStepBase {
+export interface VectorCurveStepBezier extends VectorCurveStepBase {
     /**
      * The first control point of the Bezier curve to the end point.
      */
@@ -137,9 +147,9 @@ export interface VectorPathStepBezier extends VectorPathStepBase {
 }
 
 /**
- * Holds a single step along a vector path in a PDF.
+ * Holds a single step along a vector curve in a PDF.
  */
-export type VectorPathStep = VectorPathStepSimple | VectorPathStepBezier;
+export type VectorCurveStep = VectorCurveStepSimple | VectorCurveStepBezier;
 
 /**
  * Holds the result of a status check.

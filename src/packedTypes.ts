@@ -2,9 +2,10 @@ import {
     VectorGroup,
     VectorPage,
     VectorPath,
-    VectorPathStep,
+    VectorCurveStep,
     VectorPoint,
     VectorResult,
+    VectorCurve,
 } from "./types";
 
 export interface PackedVectorResult {
@@ -33,18 +34,23 @@ export type PackedVectorPoint = [
 ];
 
 export type PackedVectorPath = [
+    // curves
+    PackedVectorCurve[],
+];
+
+export type PackedVectorCurve = [
     // startingPoint
     PackedVectorPoint,
     // closed
     boolean,
     // steps
-    PackedVectorPathStep[],
+    PackedVectorCurveStep[],
 ];
 
 /**
  * The base type for all vector path steps.
  */
-export type PackedVectorPathStep = [
+export type PackedVectorCurveStep = [
     // endPoint
     PackedVectorPoint,
     // controlPoint1
@@ -53,27 +59,35 @@ export type PackedVectorPathStep = [
     PackedVectorPoint | undefined,
 ];
 
-function unpackPathStep(packedPathStep: PackedVectorPathStep): VectorPathStep {
-    if (packedPathStep[1] && packedPathStep[2]) {
+function unpackCurve(packedCurve: PackedVectorCurve): VectorCurve {
+    return {
+        startingPoint: unpackPoint(packedCurve[0]),
+        closed: packedCurve[1],
+        steps: packedCurve[2].map(unpackCurveStep),
+    };
+}
+
+function unpackCurveStep(
+    packedCurveStep: PackedVectorCurveStep,
+): VectorCurveStep {
+    if (packedCurveStep[1] && packedCurveStep[2]) {
         return {
             isBezier: true,
-            endPoint: unpackPoint(packedPathStep[0]),
-            controlPoint1: unpackPoint(packedPathStep[1]),
-            controlPoint2: unpackPoint(packedPathStep[2]),
+            endPoint: unpackPoint(packedCurveStep[0]),
+            controlPoint1: unpackPoint(packedCurveStep[1]),
+            controlPoint2: unpackPoint(packedCurveStep[2]),
         };
     } else {
         return {
             isBezier: false,
-            endPoint: unpackPoint(packedPathStep[0]),
+            endPoint: unpackPoint(packedCurveStep[0]),
         };
     }
 }
 
 function unpackPath(packedPath: PackedVectorPath): VectorPath {
     return {
-        startingPoint: unpackPoint(packedPath[0]),
-        closed: packedPath[1],
-        steps: packedPath[2].map(unpackPathStep),
+        curves: packedPath[0].map(unpackCurve),
     };
 }
 
