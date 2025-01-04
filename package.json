@@ -17,11 +17,15 @@
     "access": "public"
   },
   "scripts": {
-    "build": "npm run clean && npm run lint && tsc",
+    "build": "npm run check && tsc",
+    "check": "npm run format && npm run lint && tsc --pretty --noEmit",
     "clean": "rm -r ./dist || true",
     "clobber": "git -c core.longpaths=true clean -dfX",
-    "lint": "eslint",
-    "fix": "prettier --write . && eslint --fix",
+    "format": "prettier --check .",
+    "format:fix": "prettier --write .",
+    "lint": "eslint --cache",
+    "lint:fix": "eslint --cache --fix",
+    "fix": "npm run format:fix && npm run lint:fix",
     "preversion": "npm run build",
     "postversion": "git push && git push --tags",
     "prepare": "npm run build"
