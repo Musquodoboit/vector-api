@@ -11,5 +11,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
--   Added `uploadPdf`, `getStatus` and `getData` functions.
--   Added typings for `VectorResult` and `VectorStatus` and their nested types.
+- Added `uploadPdf`, `getStatus` and `getData` functions.
+- Added typings for `VectorResult` and `VectorStatus` and their nested types.

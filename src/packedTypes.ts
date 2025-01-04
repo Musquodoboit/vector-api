@@ -29,7 +29,7 @@ export type PackedVectorPoint = [
     // x
     number,
     // y
-    number
+    number,
 ];
 
 export type PackedVectorPath = [
@@ -38,7 +38,7 @@ export type PackedVectorPath = [
     // closed
     boolean,
     // steps
-    PackedVectorPathStep[]
+    PackedVectorPathStep[],
 ];
 
 /**
@@ -50,7 +50,7 @@ export type PackedVectorPathStep = [
     // controlPoint1
     PackedVectorPoint | undefined,
     // controlPoint2
-    PackedVectorPoint | undefined
+    PackedVectorPoint | undefined,
 ];
 
 function unpackPathStep(packedPathStep: PackedVectorPathStep): VectorPathStep {

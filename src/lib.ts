@@ -49,12 +49,12 @@ function simpleRequest(options: SimpleRequestOptions): Promise<Buffer> {
                             new Error(
                                 `Got non-success error code ${
                                     result.statusCode
-                                } with body: ${fullBody.toString()}`
-                            )
+                                } with body: ${fullBody.toString()}`,
+                            ),
                         );
                     }
                 });
-            }
+            },
         );
 
         req.on("error", (error) => {
@@ -67,7 +67,7 @@ function simpleRequest(options: SimpleRequestOptions): Promise<Buffer> {
 
 function simpleUpload(
     filePath: string,
-    options: SimpleRequestOptions
+    options: SimpleRequestOptions,
 ): Promise<Buffer> {
     return simpleReadFile(filePath).then((fileContents) => {
         const crlf = "\r\n";
@@ -75,7 +75,7 @@ function simpleUpload(
         const delimiter = `${crlf}--${boundary}`;
         const closeDelimiter = `${delimiter}--`;
         const contentDisposition = `form-data; name="file"; filename="${path.basename(
-            filePath
+            filePath,
         )}"`;
         const multipartBody = Buffer.concat([
             Buffer.from(
@@ -83,7 +83,7 @@ function simpleUpload(
                     crlf +
                     `Content-Disposition: ${contentDisposition}` +
                     crlf +
-                    crlf
+                    crlf,
             ),
             fileContents,
             Buffer.from(closeDelimiter),
@@ -115,12 +115,12 @@ function simpleUpload(
                                 new Error(
                                     `Got non-success error code ${
                                         result.statusCode
-                                    } with body: ${fullBody.toString()}`
-                                )
+                                    } with body: ${fullBody.toString()}`,
+                                ),
                             );
                         }
                     });
-                }
+                },
             );
 
             req.on("error", (error) => {
@@ -176,7 +176,7 @@ const defaultHostname = "app.construction.ai";
  */
 export function getData(
     settings: ApiSettings,
-    token: string
+    token: string,
 ): Promise<VectorResult> {
     const options = {
         useHttp: !!settings.useHttp,
@@ -207,7 +207,7 @@ export function getData(
  */
 export function getStatus(
     settings: ApiSettings,
-    token: string
+    token: string,
 ): Promise<VectorStatus> {
     const options = {
         useHttp: !!settings.useHttp,
@@ -237,7 +237,7 @@ export function getStatus(
  */
 export function uploadPdf(
     settings: ApiSettings,
-    pdfPath: string
+    pdfPath: string,
 ): Promise<string> {
     const options = {
         useHttp: !!settings.useHttp,
