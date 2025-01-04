@@ -1,6 +1,6 @@
 {
   "name": "@construction-ai/vector-api",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Library to to access APIs for vector processing of PDFs",
   "author": "Pique Innovations",
   "contributors": [
